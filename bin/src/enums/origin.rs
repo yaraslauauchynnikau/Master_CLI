@@ -1,4 +1,8 @@
-enum Race {
+use serde::{Serialize, Deserialize};
+use serde_json::{to_string, from_str};
+
+#[derive(Serialize, Deserialize, Debug)]
+pub enum Race {
     AARAKOKRA,
     AASIMAR,
     AUTOGNOMI,
@@ -51,7 +55,8 @@ enum Race {
     YUAN_TI_PUREBLOOD
 }
 
-enum Origin {
+#[derive(Serialize, Deserialize, Debug)]
+pub enum Origin {
     HEXBLOOD,
     REBORN,
     DHAMPIR,
