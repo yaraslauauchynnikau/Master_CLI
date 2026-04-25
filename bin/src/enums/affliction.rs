@@ -1,26 +1,37 @@
 use serde::{Serialize, Deserialize};
-use serde_json::{to_string, from_str};
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum Affliction {
-    BERSERKER,
-    BLEEDING_LIGHT,
-    BLEEDING_HARD,
-    BLOODCURSE,
-    BLOODLOSS,
-    CHAOS_MARKED,
-    CURSED,
-    DEATH_MARKED,
-    DEATH_WISH,
-    DEMONIC_POSSESSION,
-    ECLIPSE_MARKED,
-    FLESH_ROTTING,
-    INFERNAL_TERROR,
-    MADNESS,
-    MINDLESS,
-    MUTATED,
-    NECROTIC,
-    PARALYZED,
-    POISONED,
-    POSSESSED,
+    // Official D&D
+    Blinded,
+    Charmed,
+    Deafened,
+    Exhaustion(u8),         // 1-6
+    Frightened,
+    Grappled,
+    Incapacitated,
+    Paralyzed,
+    Petrified,
+    Poisoned, 
+    Prone,
+    Restrained,
+    Stunned,
+    Unconscious,
+
+    // Homebrew
+    BleedingLight,
+    BleedingHard,
+    Bloodcurse,
+    Bloodloss,
+    Curse,
+    DeathMark,
+    DemonicPossession,
+    EclipseMark,
+    InfernalTerror,
+    Madness,
+    Mindless,
+    Mutation,
+    Necrotic,
+    Possession,
+    RottingFlesh,
 }
