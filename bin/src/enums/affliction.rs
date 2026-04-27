@@ -19,8 +19,9 @@ pub enum Affliction {
     Unconscious,
 
     // Homebrew
-    BleedingLight,
-    BleedingHard,
+    LightBleeding,
+    HardBleeding,
+    SevereBleeding,
     Bloodcurse,
     Bloodloss,
     Curse,

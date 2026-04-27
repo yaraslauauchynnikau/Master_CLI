@@ -9,8 +9,8 @@ pub enum BuffType {
     Sanctuary,
     
     // Resistance
-    ResistancePhysical,
-    ResistanceMagical,
+    ResistancePhysical(u8),
+    ResistanceMagical(u8),
 
     // Homebrew
     Berserker,
