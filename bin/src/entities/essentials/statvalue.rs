@@ -33,12 +33,12 @@ impl StatValue {
         self.bonus
     }
 
-    pub fn modify_base(&mut self, delta: u8) {
-        self.base = (self.base + delta).clamp(1, BASE_CAP);
+    pub fn modify_base(&mut self, delta: i8) {
+        self.base = (self.base as i8 + delta).clamp(1, BASE_CAP as i8) as u8;
     }
 
-    pub fn update_bonus(&mut self, delta: u8) {
-        self.bonus = (self.bonus + delta).clamp(0, BONUS_CAP);
+    pub fn update_bonus(&mut self, delta: i8) {
+        self.bonus = (self.bonus as i8 + delta).clamp(0, BONUS_CAP as i8) as u8;
     }
 
     pub fn total_value(&self) -> u8 {
