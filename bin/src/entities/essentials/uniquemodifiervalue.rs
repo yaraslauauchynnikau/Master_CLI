@@ -3,11 +3,11 @@ use std::ops::{Deref, DerefMut};
 use std::marker::PhantomData;
 
 
-const MODIFIER_CAP: u8 = 80;
-const MODIFIER_CEILING: u8 = -5;
+const MODIFIER_CAP: i8 = 80;
+const MODIFIER_CEILING: i8 = -5;
 
-const ENHANCEMENT_CAP: u8 = 5;
-const ENHANCEMENT_CEILING: u8 = -5;
+const ENHANCEMENT_CAP: i8 = 5;
+const ENHANCEMENT_CEILING: i8 = -5;
 
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -19,7 +19,7 @@ pub struct UniqueModifierValue {
 impl UniqueModifierValue {
     pub fn new(enhancement_level: i8) -> Self {
         Self {
-            enhancement_level.clamp(ENHANCEMENT_CEILING, ENHANCEMENT_CAP),
+            enhancement_level: enhancement_level.clamp(ENHANCEMENT_CEILING, ENHANCEMENT_CAP),
         }
     }
 
@@ -45,7 +45,7 @@ impl UniqueModifierValue {
 pub struct UniqueModifier<T> {
     value: UniqueModifierValue,
     #[serde(skip)]
-    _marker: PhantomData,
+    _marker: PhantomData<T>,
 }
 
 impl<T> Deref for UniqueModifier<T> {

@@ -1,5 +1,8 @@
 mod statvalue;
 mod stats;
 
-pub use statvalue::StatValue;
+mod uniquemodifiervalue;
+mod uniquemodifiers;
+
 pub use stats::*;
+pub use uniquemodifiers::*;

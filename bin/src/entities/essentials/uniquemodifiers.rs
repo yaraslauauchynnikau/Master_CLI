@@ -55,5 +55,7 @@ pub struct CharismaModifiers {
     pub presentation: UniqueModifier<Presentation>,
     pub intimidation: UniqueModifier<Intimidation>,
     pub deception: UniqueModifier<Deception>,
-    pub persuasion: UniqueModifier<Persuasion>
+    pub persuasion: UniqueModifier<Persuasion>,
 }
+
+pub struct NoModifiers;
