@@ -38,16 +38,15 @@ impl Hits {
         self.hits_cap
     }
     
-    fn set_cap(&self, new_cap: u8) {
+    fn set_cap(&mut self, new_cap: u8) {
         self.hits_cap = new_cap;
     }
 
-    fn modify_cap(&self, delta: u8) {
+    fn modify_cap(&mut self, delta: u8) {
         self.hits_cap = (self.hits_cap + delta).clamp;
         if self.hits_cap < 0 {
             self.hits_cap = 1;
         }
     }
 
-    
 }

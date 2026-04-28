@@ -1,5 +1,5 @@
-mod statlevel;
+mod statvalue;
 mod stats;
 
-pub use statlevel::StatLevel;
+pub use statvalue::StatValue;
 pub use stats::*;
