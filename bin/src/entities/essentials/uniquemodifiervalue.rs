@@ -3,7 +3,7 @@ use std::ops::{Deref, DerefMut};
 use std::marker::PhantomData;
 
 
-const MODIFIER_CAP: u8 = 1000;
+const MODIFIER_CAP: u8 = 80;
 const MODIFIER_CEILING: u8 = -5;
 
 const ENHANCEMENT_CAP: u8 = 5;

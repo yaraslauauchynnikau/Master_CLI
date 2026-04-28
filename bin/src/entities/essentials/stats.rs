@@ -1,5 +1,5 @@
-use super::statlevel::Stat;
-
+use super::statvalue::{Stat, HasModifiers};
+use super::uniquemodifiers::*;
 // These are stats that fit into the general dnd 1-20 + bonuses scheme
 pub struct StrengthMarker;
 pub struct AgilityMarker;
@@ -19,10 +19,16 @@ pub type Wisdom = Stat<WisdomMarker>;
 pub type Charisma = Stat<CharismaMarker>;
 pub type Inspiration = Stat<InspirationMarker>;
 pub type Initiative = Stat<InitiativeMarker>;
-pub type PerceptionMarker = Stat<PerceptionMarker>;
+pub type Perception = Stat<PerceptionMarker>;
 
-
+impl HasUniqueModifiers for Strength { type UniqueModifiers = StrengthModifiers; }
+impl HasUniqueModifiers for Agility { type UniqueModifiers = AgilityModifiers; }
+// impl HasUniqueModifiers for Physique { type UniqueModifiers = PhysiqueModifiers; } - no unique modifiers
+impl HasUniqueModifiers for Intelligence { type UniqueModifiers = IntelligenceModifiers; }
+impl HasUniqueModifiers for Wisdom { type UniqueModifiers = WisdomModifiers; }
+impl HasUniqueModifiers for Charisma { type UniqueModifiers = CharismaModifiers; }
 // The rest goes here
+
 pub struct Hits {
     hits_cap: u8,
     current_hits: u8,

@@ -2,11 +2,12 @@ use serde::{Serialize, Deserialize};
 use std::ops::{Deref, DerefMut};
 use std::marker::PhantomData;
 
-const BASE_CAP: u8 = 20;
-const BONUS_CAP: u8 = 10;
 
-pub trait HasModifiers {
-    type Modifiers;
+const BASE_CAP: u8 = 80;
+const BONUS_CAP: u8 = 80;
+
+pub trait HasUniqueModifiers {
+    type UniqueModifiers;
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -48,7 +49,7 @@ impl StatValue {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(transparent)]
-pub struct Stat<T: HasModifiers> {
+pub struct Stat<T: HasUniqueModifiers> {
     value: StatValue,
     pub modifiers: T,
     
@@ -56,14 +57,14 @@ pub struct Stat<T: HasModifiers> {
     _marker: PhantomData,
 }
 
-impl<T: HasModifiers> Deref for Stat<T: HasModifiers> {
+impl<T: HasUniqueModifiers> Deref for Stat<T: HasUniqueModifiers> {
     type Target = StatValue;
     fn deref(&self) -> &Self::Target {
         &self.value
     }
 }
 
-impl<T: HasModifiers> DerefMut for Stat<T: HasModifiers> {
+impl<T: HasUniqueModifiers> DerefMut for Stat<T: HasUniqueModifiers> {
     type Target = StatValue;
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.value
