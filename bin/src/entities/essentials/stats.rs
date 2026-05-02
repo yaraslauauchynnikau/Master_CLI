@@ -1,7 +1,8 @@
 use super::statvalue::{Stat, HasUniqueModifiers};
 use super::uniquemodifiers::*;
-// These are stats that fit into the general dnd 1-20 + bonuses scheme
 
+
+// These are stats that fit into the general dnd 1-20 + bonuses scheme
 pub struct StrengthMarker;
 pub struct AgilityMarker;
 pub struct PhysiqueMarker;
@@ -33,7 +34,7 @@ pub type Initiative = Stat<InitiativeMarker>;
 pub type NaturalPerception = Stat<NaturalPerceptionMarker>;
 
 
-// The rest goes here
+// The rest goes here, I'm yet to come up with anything more generic :(
 pub struct Hits {
     cap: u8,
     current_hits: u8,

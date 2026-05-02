@@ -5,4 +5,3 @@ mod uniquemodifiervalue;
 mod uniquemodifiers;
 
 pub use stats::*;
-pub use uniquemodifiers::*;

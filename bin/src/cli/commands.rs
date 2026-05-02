@@ -1,0 +1,2 @@
+struct UpdateInventory;
+struct UpdateWeapons;
