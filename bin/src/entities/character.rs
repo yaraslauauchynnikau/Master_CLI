@@ -25,5 +25,5 @@ pub struct Character {
     charisma: Charisma,
     inspiration: Inspiration,
     initiative: Initiative,
-    natural_perception: NaturalPerception
+    natural_perception: NaturalPerception,
 }

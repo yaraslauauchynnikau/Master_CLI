@@ -10,7 +10,7 @@ const ENHANCEMENT_CAP: i8 = 5;
 const ENHANCEMENT_CEILING: i8 = -5;
 
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Serialize, Deserialize)]
 pub struct UniqueModifierValue {
     enhancement_level: i8,
 }
@@ -40,13 +40,14 @@ impl UniqueModifierValue {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Default, Eq, Serialize, Deserialize)]
 #[serde(transparent)]
 pub struct UniqueModifier<T> {
     value: UniqueModifierValue,
     #[serde(skip)]
     _marker: PhantomData<T>,
 }
+
 
 impl<T> Deref for UniqueModifier<T> {
     type Target = UniqueModifierValue;

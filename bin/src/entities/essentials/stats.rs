@@ -1,6 +1,7 @@
 use super::statvalue::{Stat, HasUniqueModifiers};
 use super::uniquemodifiers::*;
 // These are stats that fit into the general dnd 1-20 + bonuses scheme
+
 pub struct StrengthMarker;
 pub struct AgilityMarker;
 pub struct PhysiqueMarker;

@@ -59,6 +59,15 @@ pub struct Stat<T: HasUniqueModifiers> {
     _marker: PhantomData<T>,
 }
 
+impl<T: HasUniqueModifiers + Default> Stat<T> {
+    pub fn new(base: u8) -> Self {
+        Self {
+            value: StatValue::new(base),
+            modifiers: T::default(),
+            _marker: PhantomData,
+        }
+    }
+}
 impl<T: HasUniqueModifiers> Deref for Stat<T> {
     type Target = StatValue;
     fn deref(&self) -> &Self::Target {
